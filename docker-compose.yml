@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  oraclexe:
+    image: gvenzl/oracle-xe:21.3.0-full
+    hostname: oraclexe
+    restart: unless-stopped
+    volumes:
+      - oracle-volume:/opt/oracle/oradata
+    environment:
+      - "ORACLE_PASSWORD=Oracle_2022"
+      - "APP_USER=scott"
+      - "APP_USER_PASSWORD=tiger"
+    ports:
+      - 1521:1521
+  caddy:
+    image: caddy:latest
+    command:
+      - /bin/sh
+      - -c
+      - |
+        echo "http://localhost:9880 {" > /etc/caddy/Caddyfile
+        echo "		log" >> /etc/caddy/Caddyfile
+        echo "		encode gzip" >> /etc/caddy/Caddyfile
+        echo "    	reverse_proxy oraclexe:5500 {" >> /etc/caddy/Caddyfile
+        echo "		    header_up X-Forwarded-Proto https" >> /etc/caddy/Caddyfile
+        echo "		    transport http {" >> /etc/caddy/Caddyfile
+        echo "			    tls" >> /etc/caddy/Caddyfile
+        echo "			    tls_insecure_skip_verify" >> /etc/caddy/Caddyfile
+        echo "		    }" >> /etc/caddy/Caddyfile
+        echo "	  }" >> /etc/caddy/Caddyfile
+        echo "}" >> /etc/caddy/Caddyfile
+        caddy run -config /etc/caddy/Caddyfile
+    restart: unless-stopped
+    ports:
+      - 9880:9880
+
+volumes:
+  oracle-volume:
