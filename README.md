@@ -32,7 +32,7 @@ By clicking at OracleXE icon the extension main window will show the this extens
 
 at the top left at the screen a [ScreenshotMonitorIcon](https://mui.com/material-ui/material-icons/?selected=ScreenshotMonitor) show in red Oracle EM Express is not ready yet and the green backend is ready to work.
 
-Click on **Launch Oracle EM Express** to monitor your DB, first click will ask you for the sys user password of OracleXE, fill it with sys/Oracle_2022 (default values on this extension), once you login EM Express is shown:
+Click on **Launch EM Express** to monitor your DB, first click will ask you for the sys user password of OracleXE, fill it with sys/Oracle_2022 (default values on this extension), once you login EM Express is shown:
 
 ![Screenshot of Add New Server](screenshot2.png?raw=true)
 
@@ -42,7 +42,10 @@ This extension will download three Docker images from DockerHub:
 
 - The extension itself (7.13MB)
 - Caddy reverse proxy (44.4MB)
-- Gerald Venzl Oracle XE 21.3.0-full optimized image (7GB)
+- [Gerald Venzl Oracle XE 21.3.0-full](https://hub.docker.com/r/gvenzl/oracle-xe) optimized image (7GB)
 
 As you can see first execution will wait until Oracle XE image is ready at your machine, please wait and see if you have enough space available ;)
 
+## Sources
+
+As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.
