@@ -2,17 +2,19 @@ version: '3'
 
 services:
   oraclexe:
-    image: gvenzl/oracle-xe:21.3.0-full
+    image: gvenzl/oracle-xe:${VERSON:-21.3.0}-full
     hostname: oraclexe
     restart: unless-stopped
     volumes:
       - oracle-volume:/opt/oracle/oradata
+      - /run/shm:/dev/shm
     environment:
-      - "ORACLE_PASSWORD=Oracle_2022"
-      - "APP_USER=scott"
-      - "APP_USER_PASSWORD=tiger"
+      - "ORACLE_PASSWORD=${ORACLE_PASSWORD:-Oracle_2022}"
+      - "APP_USER=${APP_USER:-scott}"
+      - "APP_USER_PASSWORD=${APP_USER_PASSWORD:-tiger}"
     ports:
-      - 1521:1521
+      - ${APP_DB_PORT:-1521}:1521
+      - ${APP_EM_PORT:-5500}:5500
   caddy:
     image: caddy:latest
     command:
@@ -21,19 +23,19 @@ services:
       - |
         echo "http://localhost:9880 {" > /etc/caddy/Caddyfile
         echo "		log" >> /etc/caddy/Caddyfile
-        echo "		encode gzip" >> /etc/caddy/Caddyfile
-        echo "    	reverse_proxy oraclexe:5500 {" >> /etc/caddy/Caddyfile
-        echo "		    header_up X-Forwarded-Proto https" >> /etc/caddy/Caddyfile
-        echo "		    transport http {" >> /etc/caddy/Caddyfile
-        echo "			    tls" >> /etc/caddy/Caddyfile
-        echo "			    tls_insecure_skip_verify" >> /etc/caddy/Caddyfile
-        echo "		    }" >> /etc/caddy/Caddyfile
+        echo "		encode zstd gzip" >> /etc/caddy/Caddyfile
+        echo "    reverse_proxy oraclexe:5500 {" >> /etc/caddy/Caddyfile
+        echo "		  header_up X-Forwarded-Proto https" >> /etc/caddy/Caddyfile
+        echo "		  transport http {" >> /etc/caddy/Caddyfile
+        echo "			  tls" >> /etc/caddy/Caddyfile
+        echo "			  tls_insecure_skip_verify" >> /etc/caddy/Caddyfile
+        echo "		  }" >> /etc/caddy/Caddyfile
         echo "	  }" >> /etc/caddy/Caddyfile
         echo "}" >> /etc/caddy/Caddyfile
         caddy run -config /etc/caddy/Caddyfile
     restart: unless-stopped
     ports:
-      - 9880:9880
+      - ${APP_HTTP_PORT:-9880}:9880
 
 volumes:
   oracle-volume:
