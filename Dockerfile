@@ -16,16 +16,18 @@ LABEL org.opencontainers.image.title="OracleXE" \
     org.opencontainers.image.description="Oracle XE embeded DB" \
     org.opencontainers.image.vendor="Marcelo Ochoa" \
     com.docker.desktop.extension.api.version=">= 0.2.3" \
-    com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot1.png\"}, {\"alt\":\"Add Server\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot2.png\"}]" \
+    com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot1.png\"}, {\"alt\":\"EM Express Main Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot2.png\"}, {\"alt\":\"EM Express Tablespace\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot3.png\"}]" \
     com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension" \
     com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/README.md\"}, {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/LICENSE\"}]" \
     com.docker.extension.detailed-description="Docker Extension for using Oracle XE embeded" \
     com.docker.extension.changelog="https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/CHANGELOG.md" \
     com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/favicon.ico"
 
+COPY favicon.ico .
 COPY oraclexe.svg .
 COPY screenshot1.png .
 COPY screenshot2.png .
+COPY screenshot3.png .
 COPY metadata.json .
 COPY docker-compose.yml .
 
