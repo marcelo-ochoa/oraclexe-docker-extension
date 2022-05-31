@@ -7,14 +7,14 @@ services:
     restart: unless-stopped
     volumes:
       - oracle-volume:/opt/oracle/oradata
-      - /run/shm:/dev/shm
+    tmpfs:
+      - /run
     environment:
       - "ORACLE_PASSWORD=${ORACLE_PASSWORD:-Oracle_2022}"
       - "APP_USER=${APP_USER:-scott}"
       - "APP_USER_PASSWORD=${APP_USER_PASSWORD:-tiger}"
     ports:
       - ${APP_DB_PORT:-1521}:1521
-      - ${APP_EM_PORT:-5500}:5500
   caddy:
     image: caddy:latest
     command:
