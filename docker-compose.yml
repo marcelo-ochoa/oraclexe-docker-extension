@@ -22,7 +22,9 @@ services:
       - -c
       - |
         echo "http://localhost:9880 {" > /etc/caddy/Caddyfile
-        echo "		log" >> /etc/caddy/Caddyfile
+        echo "		log {" >> /etc/caddy/Caddyfile
+        echo "		  level ERROR" >> /etc/caddy/Caddyfile
+        echo "		}" >> /etc/caddy/Caddyfile
         echo "		encode zstd gzip" >> /etc/caddy/Caddyfile
         echo "    reverse_proxy oraclexe:5500 {" >> /etc/caddy/Caddyfile
         echo "		  header_up X-Forwarded-Proto https" >> /etc/caddy/Caddyfile
