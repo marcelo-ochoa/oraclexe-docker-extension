@@ -1,7 +1,7 @@
-### Changelog
+# Changelog
 
-All notable changes to this project will be documented in this file. Dates are displayed in UTC.
+All notable changes to this project will be documented in this file.
 
-#### [v21.3.0](https://github.com/cookpete/auto-changelog/compare/v2.3.0...v2.4.0)
+## v21.3.0
 
 - Initial import.

@@ -12,26 +12,24 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn-${TARGETARCH} yarn bu
 
 FROM alpine:3.15
 
-LABEL org.opencontainers.image.title="OracleXE" \
-    org.opencontainers.image.description="Oracle XE embeded DB" \
-    org.opencontainers.image.vendor="Marcelo Ochoa" \
-    com.docker.desktop.extension.api.version=">= 0.2.3" \
-    com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot1.png\"}, {\"alt\":\"EM Express Main Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot2.png\"}, {\"alt\":\"Performance Hub\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot3.png\"}, {\"alt\":\"Real-time SQL Monitoring\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot4.png\"}, {\"alt\":\"Tablespace\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot5.png\"}]" \
-    com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension" \
-    com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/README.md\"}, {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/LICENSE\"}]" \
-    com.docker.extension.detailed-description="Docker Extension for using Oracle XE embeded" \
-    com.docker.extension.changelog="https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/CHANGELOG.md" \
-    com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/favicon.ico"
+LABEL org.opencontainers.image.title="OracleXE 21c embedded RDBMS"
+LABEL org.opencontainers.image.description="Oracle Database Express Edition (XE) is the ideal way to get started. \
+    It is the same powerful Oracle Database that enterprises rely on worldwide, packaged as simple Docker Desktop Extension, ease-of-use, and a full-featured experience."
+LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
+LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
+LABEL com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot1.png\"},\
+    {\"alt\":\"EM Express Main Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot2.png\"},\
+    {\"alt\":\"Performance Hub\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot3.png\"},\
+    {\"alt\":\"Real-time SQL Monitoring\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot4.png\"},\
+    {\"alt\":\"Tablespace\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/screenshot5.png\"}]"
+LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension"
+LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/README.md\"},\
+    {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/LICENSE\"}]"
+LABEL com.docker.extension.detailed-description="Docker Extension for using Oracle XE 21c embedded RDBMS including EM Express monitoring tool"
+LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/CHANGELOG.md\">change log</a>"
+LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/favicon.ico"
 
-COPY favicon.ico .
-COPY oraclexe.svg .
-COPY screenshot1.png .
-COPY screenshot2.png .
-COPY screenshot3.png .
-COPY screenshot4.png .
-COPY screenshot5.png .
-COPY metadata.json .
-COPY docker-compose.yml .
+COPY favicon.ico oraclexe.svg screenshot1.png screenshot2.png screenshot3.png screenshot4.png screenshot5.png metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
 
