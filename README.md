@@ -22,6 +22,12 @@ Extension "OracleXE" installed successfully
 
 **Note**: Docker Extension CLI is required to execute above command, follow the instructions at [Extension SDK (Beta) -> Prerequisites](https://docs.docker.com/desktop/extensions-sdk/#prerequisites) page for instructions on how to add it.
 
+**Note**: OracleXE Docker image is big, if you want a fast Docker Extension installation first execute:
+
+```bash
+docker pull gvenzl/oracle-xe:21.3.0-full
+```
+
 ## Using OracleXE Docker Extension
 
 Once the extension is installed a new extension is listed at the pane Extension (Beta) of Docker Desktop.
@@ -30,11 +36,11 @@ By clicking at OracleXE icon the extension main window will show the this extens
 
 ![Screenshot of the extension inside Docker Desktop](screenshot1.png?raw=true)
 
-at the top left at the screen a [ScreenshotMonitorIcon](https://mui.com/material-ui/material-icons/?selected=ScreenshotMonitor) show in red Oracle EM Express is not ready yet and the green backend is ready to work.
+at the top left at the screen a Circular Progress indicator ![CircularProgress](circular-progress.png?raw=true) shows Oracle XE/EM Express is not ready yet and the OracleXE icon ![Oracle](oraclexe-ready.png?raw=true) is ready to work.
 
-Click on **Launch EM Express** to monitor your DB, first click will ask you for the sys user password of OracleXE, fill it with sys/Oracle_2022 (default values on this extension), once you login EM Express is shown:
+Click on the OracleXE icon ![Oracle](oraclexe-ready.png?raw=true) or the link **Launch EM Express** to monitor your DB, first click will ask you for the sys user password for OracleXE, fill it with sys/Oracle_2022 (default values on this extension), once you login EM Express is shown:
 
-![Screenshot of Add New Server](screenshot2.png?raw=true)
+![Screenshot EMExpress in acton](screenshot2.png?raw=true)
 
 ### Notes about Oracle Docker XE image
 

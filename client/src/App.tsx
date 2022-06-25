@@ -1,26 +1,14 @@
-import { Button, Stack, Link, Box, StyledEngineProvider,Toolbar,Typography } from '@mui/material';
-import ScreenshotMonitorIcon from '@mui/icons-material/ScreenshotMonitor';
-import { createDockerDesktopClient } from '@docker/extension-api-client';
+import { Button, Box, Toolbar } from '@mui/material';
 import { useState } from 'react';
-import { red } from '@mui/material/colors';
+import { ReactComponent as StarIcon } from './oraclexe.svg';
+import CircularProgress from '@mui/material/CircularProgress';
+import SvgIcon from '@mui/icons-material/ScreenshotMonitor';
+import Container from '@mui/material/Container';
+import AppBar from '@mui/material/AppBar';
 
-export default function SvgIconsSize(props: any) {
-  return (
-    <Box
-      sx={{
-        '& > :not(style)': {
-          m: 2,
-        },
-      }}
-    >
-
-      { props.statusOk ? <ScreenshotMonitorIcon color="success"  fontSize="large" /> : <ScreenshotMonitorIcon sx={{color: red[500], fontSize: "large" }} /> }
-    </Box>
-  );
-}
 
 export function App() {
-  const ddClient = createDockerDesktopClient();
+
   const [backendInfo, setBackendInfo] = useState<string | undefined>();
 
   let timer = setTimeout(() => checkBackend("http://localhost:9880/em/login?returnUrl=/em/"), 100);
@@ -38,13 +26,33 @@ export function App() {
     }
   }
 
+  const pages = ['OracleXE','QuickStart', 'FAQ', 'License' ];
+
   return (
+    <AppBar position="static">
+    <Container maxWidth="xl">
     <Toolbar>
-      <Typography variant="h6" component="div">
-        <StyledEngineProvider injectFirst>
-          <SvgIconsSize statusOk={backendInfo?.startsWith("ok")}/>
-        </StyledEngineProvider>
-      </Typography>
-    </Toolbar>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+        <Button
+          key="app"
+          onClick={() => backendInfo?.startsWith("ok") ? window.location.href = "http://localhost:9880/em/login?returnUrl=/em/" : null}
+          sx={{ my: 1, color: 'white', display: 'block' }}
+        >
+          {backendInfo?.startsWith("ok") ? <SvgIcon component={StarIcon} inheritViewBox color="success" fontSize="large" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> : <CircularProgress />}
+        </Button>
+        {pages.map((page) => (
+              <Button
+                key={page}
+                href={`${page}.html`}
+                target="oraclexe"
+                sx={{ my: 1, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
