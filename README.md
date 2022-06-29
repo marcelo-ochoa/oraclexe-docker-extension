@@ -32,15 +32,17 @@ docker pull gvenzl/oracle-xe:21.3.0-full
 
 Once the extension is installed a new extension is listed at the pane Extension (Beta) of Docker Desktop.
 
-By clicking at OracleXE icon the extension main window will show the this extension in action
+By clicking at OracleXE icon the extension main window will show this extension in action
 
-![Screenshot of the extension inside Docker Desktop](screenshot1.png?raw=true)
+![Screenshot of the extension inside Docker Desktop](docs/images/screenshot0.png?raw=true)
 
-at the top left at the screen a Circular Progress indicator ![CircularProgress](circular-progress.png?raw=true) shows Oracle XE/EM Express is not ready yet and the OracleXE icon ![Oracle](oraclexe-ready.png?raw=true) is ready to work.
+A progress indicator bar will wait until OracleXE is ready, first startup will take several seconds depending on your hardware. First click will ask you for the sys user password for OracleXE, 
 
-Click on the OracleXE icon ![Oracle](oraclexe-ready.png?raw=true) or the link **Launch EM Express** to monitor your DB, first click will ask you for the sys user password for OracleXE, fill it with sys/Oracle_2022 (default values on this extension), once you login EM Express is shown:
+![Login Screenshot](docs/images/screenshot1.png?raw=true)
 
-![Screenshot EMExpress in acton](screenshot2.png?raw=true)
+fill it with sys/Oracle_2022 (default values on this extension), once you login EM Express is shown:
+
+![Screenshot EMExpress in acton](docs/images/screenshot2.png?raw=true)
 
 ### Notes about Oracle Docker XE image
 

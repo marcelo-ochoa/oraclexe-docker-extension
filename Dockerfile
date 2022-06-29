@@ -1,14 +1,26 @@
-FROM node:17.7-alpine3.14 AS client-builder
+FROM --platform=$BUILDPLATFORM node:17.7-alpine3.14 AS client-builder
 WORKDIR /app/client
 # cache packages in layer
 COPY client/package.json /app/client/package.json
-COPY client/yarn.lock /app/client/yarn.lock
-ARG TARGETARCH
-RUN yarn config set cache-folder /usr/local/share/.cache/yarn-${TARGETARCH}
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn-${TARGETARCH} yarn
+COPY client/package-lock.json /app/client/package-lock.json
+RUN --mount=type=cache,target=/usr/src/app/.npm \
+    npm set cache /usr/src/app/.npm && \
+    npm ci
 # install
 COPY client /app/client
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn-${TARGETARCH} yarn build
+RUN npm run build
+
+FROM golang:1.17-alpine AS builder
+ENV CGO_ENABLED=0
+WORKDIR /backend
+COPY vm/go.* .
+RUN --mount=type=cache,target=/go/pkg/mod \
+    --mount=type=cache,target=/root/.cache/go-build \
+    go mod download
+COPY vm/. .
+RUN --mount=type=cache,target=/go/pkg/mod \
+    --mount=type=cache,target=/root/.cache/go-build \
+    go build -trimpath -ldflags="-s -w" -o bin/service
 
 FROM alpine:3.15
 
@@ -29,8 +41,9 @@ LABEL com.docker.extension.detailed-description="Oracle Database Express Edition
 LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/main/CHANGELOG.md\">change log</a>"
 LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/favicon.ico"
 
-COPY favicon.ico oraclexe.svg screenshot1.png screenshot2.png screenshot3.png screenshot4.png screenshot5.png metadata.json docker-compose.yml ./
+COPY oraclexe.svg metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
+COPY --from=builder /backend/bin/service /
 
-CMD [ "sleep", "infinity" ]
+CMD /service -socket /run/guest-services/oraclexe-docker-extension.sock
