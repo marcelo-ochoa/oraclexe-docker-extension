@@ -4,7 +4,7 @@ Oracle XE extension for Docker Desktop
 
 ## Manual Installation
 
-Until this extension is ready at Docker Extension Hub you can install just by executing:
+Until this extension is ready at Docker Extension Hub you can install with the [Extension CLI](https://docs.docker.com/desktop/extensions-sdk/#prerequisites):
 
 ```bash
 $ docker extension install mochoa/oraclexe-docker-extension:21.3.0
@@ -22,7 +22,7 @@ Extension "OracleXE" installed successfully
 
 **Note**: Docker Extension CLI is required to execute above command, follow the instructions at [Extension SDK (Beta) -> Prerequisites](https://docs.docker.com/desktop/extensions-sdk/#prerequisites) page for instructions on how to add it.
 
-**Note**: OracleXE Docker image is big, if you want a fast Docker Extension installation first execute:
+**Note**: OracleXE Docker image is big, is strongly recommended that first execute:
 
 ```bash
 docker pull gvenzl/oracle-xe:21.3.0-full
@@ -36,7 +36,7 @@ By clicking at OracleXE icon the extension main window will show this extension 
 
 ![Screenshot of the extension inside Docker Desktop](docs/images/screenshot0.png?raw=true)
 
-A progress indicator bar will wait until OracleXE is ready, first startup will take several seconds depending on your hardware. First click will ask you for the sys user password for OracleXE, 
+A progress indicator bar will wait until OracleXE is ready, first startup will take several seconds depending on your hardware. First click will ask you for the sys user password for OracleXE,
 
 ![Login Screenshot](docs/images/screenshot1.png?raw=true)
 
