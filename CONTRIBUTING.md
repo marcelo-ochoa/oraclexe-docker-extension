@@ -1,4 +1,4 @@
-# Contributing to Orcale Docker-extension
+# Contributing to OracleXE Docker Extension
 
 Hi, glad to know that you're interested in contributing. Here are
 some topics that can help you to get started:

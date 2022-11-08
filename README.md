@@ -1,4 +1,4 @@
-# Docker Extension
+# OracleXE Docker Extension
 
 Oracle XE extension for Docker Desktop
 
