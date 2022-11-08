@@ -28,6 +28,7 @@ LABEL org.opencontainers.image.title="OracleXE 21c embedded RDBMS"
 LABEL org.opencontainers.image.description="Docker Extension for using Oracle XE 21c embedded RDBMS including EM Express monitoring tool"
 LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
+LABEL com.docker.extension.categories="database"
 LABEL com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/docs/images/screenshot1.png\"},\
     {\"alt\":\"EM Express Main Page\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/docs/images/screenshot2.png\"},\
     {\"alt\":\"Performance Hub\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/main/docs/images/screenshot3.png\"},\

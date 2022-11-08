@@ -1,4 +1,6 @@
 {
+  "name": "OracleXE",
+  "provider": "Marcelo Ochoa",
   "icon": "oraclexe.svg",
   "vm": {
     "composefile": "docker-compose.yml",
