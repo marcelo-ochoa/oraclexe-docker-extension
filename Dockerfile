@@ -44,9 +44,9 @@ LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
 LABEL com.docker.extension.categories="database"
 LABEL com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot1.png\"},\
-    {\"alt\":\"SQLcl - DDL generation\", \"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/docs/images/screenshot2.png\"},\
-    {\"alt\":\"SQLcl - SQL format XML\", \"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/docs/images/screenshot3.png\"},\
-    {\"alt\":\"SQLcl - Explain Plan\", \"url\":\"hhttps://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/docs/images/screenshot4.png\"}]"
+    {\"alt\":\"SQLcl - DDL generation\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot2.png\"},\
+    {\"alt\":\"SQLcl - SQL format XML\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot3.png\"},\
+    {\"alt\":\"SQLcl - Explain Plan\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot4.png\"}]"
 LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/21.3.0-slim"
 LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/README.md\"},\
     {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/LICENSE\"}]"
