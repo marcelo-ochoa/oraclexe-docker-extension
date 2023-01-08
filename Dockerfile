@@ -1,5 +1,12 @@
 FROM --platform=$BUILDPLATFORM node:17.7-alpine3.14 AS client-builder
+ARG SQLCL_VERSION=22.4
+ARG SQLCL_MINOR=0
+ARG SQLCL_PATCH=342
+ARG SQLCL_BUILD=1212
 WORKDIR /app/client
+# https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/
+ADD sqlcl-${SQLCL_VERSION}.${SQLCL_MINOR}.${SQLCL_PATCH}.${SQLCL_BUILD}.zip .
+RUN unzip -d /opt sqlcl-${SQLCL_VERSION}.${SQLCL_MINOR}.${SQLCL_PATCH}.${SQLCL_BUILD}.zip
 # cache packages in layer
 COPY client/package.json /app/client/package.json
 COPY client/package-lock.json /app/client/package-lock.json
@@ -23,6 +30,13 @@ RUN --mount=type=cache,target=/go/pkg/mod \
     go build -trimpath -ldflags="-s -w" -o bin/service
 
 FROM alpine:3.15
+RUN apk update && apk add --no-cache ncurses bash ttyd tini openjdk17-jre && \
+    mkdir -p /home/sqlcl && \
+    echo "HOME=/home/sqlcl;cd /home/sqlcl;/opt/sqlcl/bin/sql /nolog" > /home/sql.sh && \
+    chown 1000:1000 /home/sqlcl /home/sql.sh && \
+    chmod u+rwx /home/sql.sh && \
+    echo "sqlcl:x:1000:1000:SQLcl:/home/sqlcl:/bin/bash" >> /etc/passwd && \
+    echo "sqlcl:x:1000:sqlcl" >> /etc/group
 
 LABEL org.opencontainers.image.title="OracleXE 21c embedded RDBMS"
 LABEL org.opencontainers.image.description="Docker Extension for using Oracle XE 21c embedded RDBMS including EM Express monitoring tool"
@@ -45,6 +59,8 @@ LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marce
 COPY oraclexe.svg metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
+COPY --from=client-builder /opt/sqlcl /opt/sqlcl
 COPY --from=builder /backend/bin/service /
+COPY --chown=1000:1000 login.sql /home/sqlcl
 
-CMD /service -socket /run/guest-services/oraclexe-docker-extension.sock
+ENTRYPOINT ["/sbin/tini", "--", "/service", "-socket", "/run/guest-services/oraclexe-docker-extension.sock"]

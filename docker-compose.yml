@@ -3,8 +3,15 @@ version: '3'
 services:
   oraclexe-docker-extension:
     image: ${DESKTOP_PLUGIN_IMAGE}
+    hostname: oraclexe-docker-extension
+    ports:
+      - 49890:7681
+    volumes:
+      - sqlcl_home:/home/sqlcl
+    environment:
+      - SQLPATH=/home/sqlcl
   oraclexe:
-    image: gvenzl/oracle-xe:${VERSION:-21.3.0}-full
+    image: gvenzl/oracle-xe:${VERSION:-21.3.0-slim}
     hostname: oraclexe
     restart: unless-stopped
     volumes:
@@ -17,29 +24,7 @@ services:
       - "APP_USER_PASSWORD=${APP_USER_PASSWORD:-tiger}"
     ports:
       - ${APP_DB_PORT:-1521}:1521
-  caddy:
-    image: caddy:2.6.1-alpine
-    command:
-      - /bin/sh
-      - -c
-      - |
-        echo "http://localhost:9880 {"                           > /etc/caddy/Caddyfile
-        echo "        log {"                                     >> /etc/caddy/Caddyfile
-        echo "                level ERROR"                       >> /etc/caddy/Caddyfile
-        echo "        }"                                         >> /etc/caddy/Caddyfile
-        echo "        encode zstd gzip"                          >> /etc/caddy/Caddyfile
-        echo "        reverse_proxy oraclexe:5500 {"             >> /etc/caddy/Caddyfile
-        echo "                header_up X-Forwarded-Proto https" >> /etc/caddy/Caddyfile
-        echo "                transport http {"                  >> /etc/caddy/Caddyfile
-        echo "                        tls"                       >> /etc/caddy/Caddyfile
-        echo "                        tls_insecure_skip_verify"  >> /etc/caddy/Caddyfile
-        echo "                }"                                 >> /etc/caddy/Caddyfile
-        echo "        }"                                         >> /etc/caddy/Caddyfile
-        echo "}"                                                 >> /etc/caddy/Caddyfile
-        caddy run --config /etc/caddy/Caddyfile
-    restart: unless-stopped
-    ports:
-      - ${APP_HTTP_PORT:-9880}:9880
 
 volumes:
   oracle-volume:
+  sqlcl_home:

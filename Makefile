@@ -2,7 +2,7 @@ all: clean extension install
 
 ORG=mochoa
 XE_IMAGE_NAME=gvenzl/oracle-xe
-VERSION=21.3.0
+VERSION=21.3.0-slim
 IMAGE_NAME=$(ORG)/oraclexe-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION)
 
@@ -20,7 +20,7 @@ validate: extension
 	docker extension  validate $(TAGGED_IMAGE_NAME)
 
 update: extension
-	docker extension update $(TAGGED_IMAGE_NAME)
+	docker extension update -f $(TAGGED_IMAGE_NAME)
 
 multiarch:
 	docker buildx create --name=buildx-multi-arch --driver=docker-container --driver-opt=network=host
