@@ -36,13 +36,13 @@ By clicking at OracleXE icon the extension main window will show this extension 
 
 ![Screenshot of the extension inside Docker Desktop](docs/images/screenshot1.png?raw=true)
 
-A progress indicator bar will wait until OracleXE is ready, first startup will take several seconds depending on your hardware. First click will ask you for the sys user password for OracleXE,
+A progress indicator bar will wait until OracleXE is ready, first startup will take several seconds depending on your hardware. By default scott user is added as part of the startup script, just connect using tiger password as is shown below
 
-![Login Screenshot](docs/images/screenshot1.png?raw=true)
+![Login Screenshot](docs/images/screenshot2.png?raw=true)
 
-fill it with sys/Oracle_2022 (default values on this extension), once you login EM Express is shown:
+also sys user is available with password **Oracle_2022** (default values on this extension):
 
-![Screenshot SQLcl in acton](docs/images/screenshot2.png?raw=true)
+![Screenshot SQLcl in acton](docs/images/screenshot3.png?raw=true)
 
 ### Notes about Oracle Docker XE image
 
