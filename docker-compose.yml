@@ -5,7 +5,7 @@ services:
     image: ${DESKTOP_PLUGIN_IMAGE}
     hostname: oraclexe-docker-extension
     ports:
-      - 49890:7681
+      - ${SQL_CL_PORT:-59890}:7681
     volumes:
       - sqlcl_home:/home/sqlcl
     environment:

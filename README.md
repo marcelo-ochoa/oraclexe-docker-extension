@@ -22,7 +22,7 @@ Extension "OracleXE 21c embedded RDBMS - Slim" installed successfully
 
 **Note**: Docker Extension CLI is required to execute above command, follow the instructions at [Extension SDK (Beta) -> Prerequisites](https://docs.docker.com/desktop/extensions-sdk/#prerequisites) page for instructions on how to add it.
 
-**Note**: OracleXE Docker image is big (2.07GB), is strongly recommended that first execute:
+**Note**: OracleXE Docker image is big (947MB), is strongly recommended that first execute:
 
 ```bash
 docker pull gvenzl/oracle-xe:21.3.0-slim
@@ -49,7 +49,7 @@ also sys user is available with password **Oracle_2022** (default values on this
 This extension will download three Docker images from DockerHub:
 
 - The extension itself (270MB)
-- [Gerald Venzl Oracle XE 21.3.0-slim](https://hub.docker.com/r/gvenzl/oracle-xe) optimized image (2.07GB)
+- [Gerald Venzl Oracle XE 21.3.0-slim](https://hub.docker.com/r/gvenzl/oracle-xe) optimized image (947MB)
 
 As you can see first execution will wait until Oracle XE image is ready at your machine, please wait and see if you have enough space available ;)
 
