@@ -1,6 +1,6 @@
 # Oracle Free Docker Extension
 
-Oracle XE extension for Docker Desktop
+Oracle Free extension for Docker Desktop
 
 ## Manual Installation
 
