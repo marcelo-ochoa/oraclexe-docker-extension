@@ -1,9 +1,9 @@
 all: clean extension install
 
 ORG=mochoa
-XE_IMAGE_NAME=gvenzl/oracle-xe
-VERSION=21.3.0
-IMAGE_NAME=$(ORG)/oraclexe-docker-extension
+XE_IMAGE_NAME=gvenzl/oracle-free
+VERSION=23.2.0
+IMAGE_NAME=$(ORG)/oraclefree-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION)
 
 clean:

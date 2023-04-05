@@ -20,7 +20,7 @@ var globaltheme Theme
 
 func main() {
 	var socketPath string
-	flag.StringVar(&socketPath, "socket", "/run/guest-services/oraclexe-docker-extension.sock", "Unix domain socket to listen on")
+	flag.StringVar(&socketPath, "socket", "/run/guest-services/oraclefree-docker-extension.sock", "Unix domain socket to listen on")
 	flag.Parse()
 
 	os.RemoveAll(socketPath)
@@ -52,7 +52,7 @@ func listen(path string) (net.Listener, error) {
 // ready checks whether PGAdmin is ready or not by querying localhost:9880.
 func ready(ctx echo.Context) error {
 	timeout := 5 * time.Second
-	conn, err := net.DialTimeout("tcp", "oraclexe:1521", timeout)
+	conn, err := net.DialTimeout("tcp", "oracle:1521", timeout)
 	if err != nil {
 		log.Println(err)
 		return ctx.String(http.StatusOK, "false")

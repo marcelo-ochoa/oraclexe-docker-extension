@@ -1,25 +1,25 @@
 version: '3'
 
 services:
-  oraclexe-docker-extension:
+  oraclefree-docker-extension:
     image: ${DESKTOP_PLUGIN_IMAGE}
-    hostname: oraclexe-docker-extension
+    hostname: oraclefree-docker-extension
     ports:
       - ${SQL_CL_PORT:-59890}:7681
     volumes:
       - sqlcl_home:/home/sqlcl
     environment:
       - SQLPATH=/home/sqlcl
-  oraclexe:
-    image: gvenzl/oracle-xe:${VERSION:-21.3.0-slim}
-    hostname: oraclexe
+  oraclefree:
+    image: gvenzl/oracle-free:${VERSION:-23.2.0-faststart}
+    hostname: oracle
     restart: unless-stopped
     volumes:
       - oracle-volume:/opt/oracle/oradata
     tmpfs:
       - /run
     environment:
-      - "ORACLE_PASSWORD=${ORACLE_PASSWORD:-Oracle_2022}"
+      - "ORACLE_PASSWORD=${ORACLE_PASSWORD:-Oracle_2023}"
       - "APP_USER=${APP_USER:-scott}"
       - "APP_USER_PASSWORD=${APP_USER_PASSWORD:-tiger}"
     ports:

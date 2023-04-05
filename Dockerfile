@@ -38,28 +38,28 @@ RUN apk update && apk add --no-cache ncurses bash ttyd tini openjdk17-jre && \
     echo "sqlcl:x:1000:1000:SQLcl:/home/sqlcl:/bin/bash" >> /etc/passwd && \
     echo "sqlcl:x:1000:sqlcl" >> /etc/group
 
-LABEL org.opencontainers.image.title="OracleXE 21c embedded RDBMS - Slim"
-LABEL org.opencontainers.image.description="Docker Extension for using Oracle XE 21c embedded RDBMS including SQLcl tool"
+LABEL org.opencontainers.image.title="OracleFree 23c embedded RDBMS - Faststart"
+LABEL org.opencontainers.image.description="Docker Extension for using Oracle Free 23c embedded RDBMS including SQLcl tool"
 LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
 LABEL com.docker.extension.categories="database"
-LABEL com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot1.png\"},\
-    {\"alt\":\"SQLcl - DDL generation\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot2.png\"},\
-    {\"alt\":\"SQLcl - SQL format XML\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot3.png\"},\
-    {\"alt\":\"SQLcl - Explain Plan\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/docs/images/screenshot4.png\"}]"
-LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/21.3.0-slim"
-LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/README.md\"},\
-    {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/LICENSE\"}]"
+LABEL com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot1.png\"},\
+    {\"alt\":\"SQLcl - DDL generation\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot2.png\"},\
+    {\"alt\":\"SQLcl - SQL format XML\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot3.png\"},\
+    {\"alt\":\"SQLcl - Explain Plan\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot4.png\"}]"
+LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.2.0-faststart"
+LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.2.0-faststart/README.md\"},\
+    {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.2.0-faststart/LICENSE\"}]"
 LABEL com.docker.extension.detailed-description="Oracle Database Express Edition (XE) is the ideal way to get started. \
     It is the same powerful Oracle Database that enterprises rely on worldwide, packaged as simple Docker Desktop Extension, ease-of-use, and a full-featured experience."
-LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/21.3.0-slim/CHANGELOG.md\">change log</a>"
-LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/21.3.0-slim/client/public/favicon.ico"
+LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.2.0-faststart/CHANGELOG.md\">change log</a>"
+LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/client/public/favicon.ico"
 
-COPY oraclexe.svg metadata.json docker-compose.yml ./
+COPY oraclefree.svg metadata.json docker-compose.yml ./
 
 COPY --from=client-builder /app/client/dist ui
 COPY --from=client-builder /opt/sqlcl /opt/sqlcl
 COPY --from=builder /backend/bin/service /
 COPY --chown=1000:1000 login.sql /home/sqlcl
 
-ENTRYPOINT ["/sbin/tini", "--", "/service", "-socket", "/run/guest-services/oraclexe-docker-extension.sock"]
+ENTRYPOINT ["/sbin/tini", "--", "/service", "-socket", "/run/guest-services/oraclefree-docker-extension.sock"]

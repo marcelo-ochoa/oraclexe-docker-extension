@@ -16,15 +16,15 @@ alias sess=select count(*), username, machine from v$session group by username, 
 alias dblinks=select * from dba_db_links order by db_link;
 alias registry=select comp_name, version, status from dba_registry;
 alias invalid=select count(*), owner, object_type from dba_objects where status = 'INVALID' group by owner, object_type order by owner, object_type;
-alias connxe=conn scott/tiger@"host.docker.internal:1521/xepdb1";
+alias connfree=conn scott/tiger@"host.docker.internal:1521/freepdb1";
 
 PROMPT -- Note: SQLFORMAT is ANSICONSOLE
 PROMPT --       STATUSBAR is ON
 PROMPT --       HIGHLIGHTING is ON
 PROMPT -- Sample connection string:
-PROMPT --    SQL> conn scott/tiger@host.docker.internal:1521/xepdb1
-PROMPT -- or using alias for local XE installation:
-PROMPT --    SQL> connxe
+PROMPT --    SQL> conn scott/tiger@host.docker.internal:1521/freepdb1
+PROMPT -- or using alias for local Free Developer installation:
+PROMPT --    SQL> connfree
 PROMPT -- Cloud connection with client credential (wallet), file upload:
 PROMPT --       $ docker cp /tmp/Wallet_MyDB.zip mochoa_sqlcl-docker-extension-desktop-extension-service:/home/sqlcl
 PROMPT -- Cloud connection string:

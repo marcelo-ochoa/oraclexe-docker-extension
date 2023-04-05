@@ -1,16 +1,16 @@
 {
-  "icon": "oraclexe.svg",
+  "icon": "oraclefree.svg",
   "vm": {
     "composefile": "docker-compose.yml",
-    "exposes": { "socket": "oraclexe-docker-extension.sock" }
+    "exposes": { "socket": "oraclefree-docker-extension.sock" }
   },
   "ui": {
     "dashboard-tab": {
-      "title": "OracleXE",
+      "title": "Oracle Free",
       "root": "/ui",
       "src": "index.html",
       "backend": {
-        "socket": "oraclexe-docker-extension.sock"
+        "socket": "oraclefree-docker-extension.sock"
       }
     }
   }
