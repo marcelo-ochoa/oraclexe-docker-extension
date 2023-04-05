@@ -17,7 +17,7 @@ Setting additional compose attributes
 VM service started
 Installing Desktop extension UI for tab "Oracle Free"...
 Extension UI tab "Oracle Free" added.
-Extension "Oracle Free Developer Edition 23c embedded RDBMS - Faststart" installed successfully
+Extension "OracleFree Developer Edition 23c embedded RDBMS - Faststart" installed successfully
 ```
 
 **Note**: Docker Extension CLI is required to execute above command, follow the instructions at [Extension SDK (Beta) -> Prerequisites](https://docs.docker.com/desktop/extensions-sdk/#prerequisites) page for instructions on how to add it.
