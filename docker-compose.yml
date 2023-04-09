@@ -5,7 +5,7 @@ services:
     image: ${DESKTOP_PLUGIN_IMAGE}
     hostname: oraclefree-docker-extension
     ports:
-      - ${SQL_CL_PORT:-59890}:7681
+      - ${SQL_CL_PORT:-59830}:7681
     volumes:
       - sqlcl_home:/home/sqlcl
     environment:
