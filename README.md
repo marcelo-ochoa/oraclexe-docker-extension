@@ -22,10 +22,10 @@ Extension "OracleFree Developer Edition 19c embedded RDBMS - Faststart" installe
 
 **Note**: Docker Extension CLI is required to execute above command, follow the instructions at [Extension SDK (Beta) -> Prerequisites](https://docs.docker.com/desktop/extensions-sdk/#prerequisites) page for instructions on how to add it.
 
-**Note**: Oracle Free Docker image is big (1.33GB), is strongly recommended that first execute:
+**Note**: Oracle Free Docker image is need to be build locally first
 
 ```bash
-docker pull gvenzl/oracle-free:23.2-slim-faststart
+docker buildx build --build-arg BASE_IMAGE=oracle/database:19.3.0-ee-slim -t oracle/database:19.3.0-ee-slim-faststart -f Dockerfile.faststart .
 ```
 
 ## Using Oracle Free Docker Extension
@@ -49,10 +49,10 @@ also sys user is available with password **Oracle_2023** (default values on this
 This extension will download three Docker images from DockerHub:
 
 - The extension itself (270MB)
-- [Gerald Venzl Oracle Free 23.2-slim-faststart](https://hub.docker.com/r/gvenzl/oracle-free) image (5.85GB uncompressed size)
+- [Marcelo Ochoa - Oracle on ARM, Mac M1/M2 Docker images](https://medium.com/itnext/oracle-on-arm-mac-m1-m2-docker-images-99ed67ed6ba6) image (7.56GB uncompressed size)
 
 As you can see first execution will wait until Oracle Free image is ready at your machine, please wait and see if you have enough space available ;)
 
 ## Sources
 
-As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.2.0-faststart), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.
+As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/19.3.0-ee-slim-faststart), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.

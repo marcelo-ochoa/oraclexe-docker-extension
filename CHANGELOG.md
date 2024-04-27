@@ -2,10 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-## v23.2.0
-
-- Upgrade to Oracle Free Developer Edition.
-
-## v21.3.0
+## v19.3.0-ee-slim-faststart
 
 - Initial import.
