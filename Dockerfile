@@ -1,11 +1,11 @@
 FROM --platform=$BUILDPLATFORM node:17.7-alpine3.14 AS client-builder
-ARG SQLCL_VERSION=23.1
+ARG SQLCL_VERSION=24.1
 ARG SQLCL_MINOR=0
-ARG SQLCL_PATCH=089
+ARG SQLCL_PATCH=087
 ARG SQLCL_BUILD=0929
 WORKDIR /app/client
 # https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/
-ADD sqlcl-${SQLCL_VERSION}.${SQLCL_MINOR}.${SQLCL_PATCH}.${SQLCL_BUILD}.zip .
+ADD https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-${SQLCL_VERSION}.${SQLCL_MINOR}.${SQLCL_PATCH}.${SQLCL_BUILD}.zip .
 RUN unzip -d /opt sqlcl-${SQLCL_VERSION}.${SQLCL_MINOR}.${SQLCL_PATCH}.${SQLCL_BUILD}.zip
 # cache packages in layer
 COPY client/package.json /app/client/package.json
@@ -38,8 +38,8 @@ RUN apk update && apk add --no-cache ncurses bash ttyd tini openjdk17-jre && \
     echo "sqlcl:x:1000:1000:SQLcl:/home/sqlcl:/bin/bash" >> /etc/passwd && \
     echo "sqlcl:x:1000:sqlcl" >> /etc/group
 
-LABEL org.opencontainers.image.title="OracleFree 23c embedded RDBMS - Faststart"
-LABEL org.opencontainers.image.description="Docker Extension for using Oracle Free 23c embedded RDBMS including SQLcl tool"
+LABEL org.opencontainers.image.title="OracleFree 19c embedded RDBMS - Faststart"
+LABEL org.opencontainers.image.description="Docker Extension for using Oracle Free 19c embedded RDBMS including SQLcl tool"
 LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
 LABEL com.docker.extension.categories="database"

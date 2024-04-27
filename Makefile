@@ -1,8 +1,8 @@
 all: clean extension install
 
 ORG=mochoa
-XE_IMAGE_NAME=gvenzl/oracle-free
-VERSION=23.2.0
+XE_IMAGE_NAME=oracle/database
+VERSION=19.3.0
 IMAGE_NAME=$(ORG)/oraclefree-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION)
 
@@ -21,6 +21,9 @@ validate: extension
 
 update: extension
 	docker extension update -f $(TAGGED_IMAGE_NAME)
+
+devel: ## Start Docker Extension in Dev mode
+	docker extension dev debug $(IMAGE):$(TAG) && docker extension dev ui-source $(IMAGE):$(TAG) http://localhost:3000
 
 multiarch:
 	docker buildx create --name=buildx-multi-arch --driver=docker-container --driver-opt=network=host
