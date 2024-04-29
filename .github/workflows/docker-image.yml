@@ -26,4 +26,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: mochoa/oraclefree-docker-extension:19.3.0
+          tags: mochoa/oraclexe-docker-extension:19.3.0
