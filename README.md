@@ -7,11 +7,11 @@ Oracle Free extension for Docker Desktop
 Until this extension is ready at Docker Extension Hub you can install with the [Extension CLI](https://docs.docker.com/desktop/extensions-sdk/#prerequisites):
 
 ```bash
-$ docker extension install mochoa/oraclexe-docker-extension:oracle-free-19.3.0-faststart
-docker extension install mochoa/oraclexe-docker-extension:oracle-free-19.3.0-faststart
+$ docker extension install mochoa/oraclefree-docker-extension:19.3.0
+docker extension install mochoa/oraclefree-docker-extension:19.3.0
 Extensions can install binaries, invoke commands and access files on your machine. 
 Are you sure you want to continue? [y/N] y
-Installing new extension "mochoa/oraclexe-docker-extension:oracle-free-19.3.0-faststart"
+Installing new extension "mochoa/oraclefree-docker-extension:19.3.0"
 Installing service in Desktop VM...
 Setting additional compose attributes
 VM service started
@@ -52,6 +52,15 @@ This extension will download three Docker images from DockerHub:
 - [Marcelo Ochoa - Oracle on ARM, Mac M1/M2 Docker images](https://medium.com/itnext/oracle-on-arm-mac-m1-m2-docker-images-99ed67ed6ba6) image (7.56GB uncompressed size)
 
 As you can see first execution will wait until Oracle Free image is ready at your machine, please wait and see if you have enough space available ;)
+
+## Uninstall
+
+To uninstall the extension just execute:
+
+```bash
+$ docker extension uninstall mochoa/oraclefree-docker-extension:19.3.0
+Extension "Oracle Free" uninstalled successfully
+```
 
 ## Sources
 
