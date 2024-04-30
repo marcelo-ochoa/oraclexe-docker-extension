@@ -53,6 +53,15 @@ This extension will download three Docker images from DockerHub:
 
 As you can see first execution will wait until Oracle Free image is ready at your machine, please wait and see if you have enough space available ;)
 
+## Uninstall
+
+To uninstall the extension just execute:
+
+```bash
+$ docker extension uninstall mochoa/oraclexe-docker-extension:oracle-free-23.2.0-faststart
+Extension "Oracle Free" uninstalled successfully
+```
+
 ## Sources
 
 As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.2.0-faststart), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.
