@@ -25,7 +25,7 @@ Extension "OracleFree Developer Edition 23c embedded RDBMS - Faststart" installe
 **Note**: Oracle Free Docker image is big (1.33GB), is strongly recommended that first execute:
 
 ```bash
-docker pull gvenzl/oracle-free:23.2-slim-faststart
+docker pull gvenzl/oracle-free:23.4-slim-faststart
 ```
 
 ## Using Oracle Free Docker Extension
