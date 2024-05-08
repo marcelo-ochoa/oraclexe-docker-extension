@@ -7,11 +7,11 @@ Oracle Free extension for Docker Desktop
 Until this extension is ready at Docker Extension Hub you can install with the [Extension CLI](https://docs.docker.com/desktop/extensions-sdk/#prerequisites):
 
 ```bash
-$ docker extension install mochoa/oraclexe-docker-extension:oracle-free-23.4.0-faststart
-docker extension install mochoa/oraclexe-docker-extension:oracle-free-23.4.0-faststart
+$ docker extension install mochoa/oraclefree-docker-extension:23.4.0
+docker extension install mochoa/oraclefree-docker-extension:23.4.0
 Extensions can install binaries, invoke commands and access files on your machine. 
 Are you sure you want to continue? [y/N] y
-Installing new extension "mochoa/oraclexe-docker-extension:oracle-free-23.4.0-faststart"
+Installing new extension "mochoa/oraclefree-docker-extension:23.4.0"
 Installing service in Desktop VM...
 Setting additional compose attributes
 VM service started
@@ -58,7 +58,7 @@ As you can see first execution will wait until Oracle Free image is ready at you
 To uninstall the extension just execute:
 
 ```bash
-$ docker extension uninstall mochoa/oraclexe-docker-extension:oracle-free-23.4.0-faststart
+$ docker extension uninstall mochoa/oraclefree-docker-extension:23.4.0
 Extension "Oracle Free" uninstalled successfully
 ```
 
