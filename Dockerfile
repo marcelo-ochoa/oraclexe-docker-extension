@@ -43,17 +43,17 @@ LABEL org.opencontainers.image.description="Docker Extension for using Oracle Fr
 LABEL org.opencontainers.image.vendor="Marcelo Ochoa"
 LABEL com.docker.desktop.extension.api.version=">= 0.2.3"
 LABEL com.docker.extension.categories="database"
-LABEL com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot1.png\"},\
-    {\"alt\":\"SQLcl - DDL generation\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot2.png\"},\
-    {\"alt\":\"SQLcl - SQL format XML\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot3.png\"},\
-    {\"alt\":\"SQLcl - Explain Plan\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/docs/images/screenshot4.png\"}]"
-LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.2.0-faststart"
-LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.2.0-faststart/README.md\"},\
-    {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.2.0-faststart/LICENSE\"}]"
+LABEL com.docker.extension.screenshots="[{\"alt\":\"Initial Screen\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.4.0-faststart/docs/images/screenshot1.png\"},\
+    {\"alt\":\"SQLcl - DDL generation\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.4.0-faststart/docs/images/screenshot2.png\"},\
+    {\"alt\":\"SQLcl - SQL format XML\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.4.0-faststart/docs/images/screenshot3.png\"},\
+    {\"alt\":\"SQLcl - Explain Plan\", \"url\":\"https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.4.0-faststart/docs/images/screenshot4.png\"}]"
+LABEL com.docker.extension.publisher-url="https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.4.0-faststart"
+LABEL com.docker.extension.additional-urls="[{\"title\":\"Documentation\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.4.0-faststart/README.md\"},\
+    {\"title\":\"License\",\"url\":\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.4.0-faststart/LICENSE\"}]"
 LABEL com.docker.extension.detailed-description="Oracle Database Developer Edition (Free) is the ideal way to get started. \
     It is the same powerful Oracle Database that enterprises rely on worldwide, packaged as simple Docker Desktop Extension, ease-of-use, and a full-featured experience."
-LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.2.0-faststart/CHANGELOG.md\">change log</a>"
-LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.2.0-faststart/client/public/favicon.ico"
+LABEL com.docker.extension.changelog="See full <a href=\"https://github.com/marcelo-ochoa/oraclexe-docker-extension/blob/oracle-free-23.4.0-faststart/CHANGELOG.md\">change log</a>"
+LABEL com.docker.desktop.extension.icon="https://raw.githubusercontent.com/marcelo-ochoa/oraclexe-docker-extension/oracle-free-23.4.0-faststart/client/public/favicon.ico"
 
 COPY oraclefree.svg metadata.json docker-compose.yml ./
 
