@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v23.5.0
+
+- Upgrade to latest Oracle Free Developer Edition.
+
 ## v23.4.0
 
 - Upgrade to latest Oracle Free Developer Edition.
