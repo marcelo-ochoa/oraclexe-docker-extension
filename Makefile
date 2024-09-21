@@ -2,7 +2,7 @@ all: clean extension install
 
 ORG=mochoa
 XE_IMAGE_NAME=gvenzl/oracle-free
-VERSION=23.5.0
+VERSION=23.5.1
 IMAGE_NAME=$(ORG)/oraclefree-docker-extension
 TAGGED_IMAGE_NAME=$(IMAGE_NAME):$(VERSION)
 
@@ -13,7 +13,7 @@ clean:
 extension:
 	docker buildx build --load -t $(TAGGED_IMAGE_NAME) --build-arg VERSION=$(VERSION) --build-arg XE_IMAGE_NAME=$(XE_IMAGE_NAME) .
 
-install:
+install: extension
 	docker extension install $(TAGGED_IMAGE_NAME)
 
 validate: extension

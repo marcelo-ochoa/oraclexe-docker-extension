@@ -118,7 +118,7 @@ func (t *TTYD) Start(theme Theme) error {
 		globaltheme = theme
 	}
 	if !t.IsStarted() {
-		args := []string{"-u", "1000", "-g", "1000", "-t", "titleFixed='sqlcl'"}
+		args := []string{"-W", "-u", "1000", "-g", "1000", "-t", "titleFixed='sqlcl'"}
 		args = append(args, "-t", fmt.Sprintf("theme=%s", theme))
 	
 		args = append(args, "/bin/bash", "/home/sql.sh")

@@ -7,11 +7,11 @@ Oracle Free extension for Docker Desktop
 Until this extension is ready at Docker Extension Hub you can install with the [Extension CLI](https://docs.docker.com/desktop/extensions-sdk/#prerequisites):
 
 ```bash
-$ docker extension install mochoa/oraclefree-docker-extension:23.5.0
-docker extension install mochoa/oraclefree-docker-extension:23.5.0
+$ docker extension install mochoa/oraclefree-docker-extension:23.5.1
+docker extension install mochoa/oraclefree-docker-extension:23.5.1
 Extensions can install binaries, invoke commands and access files on your machine. 
 Are you sure you want to continue? [y/N] y
-Installing new extension "mochoa/oraclefree-docker-extension:23.5.0"
+Installing new extension "mochoa/oraclefree-docker-extension:23.5.1"
 Installing service in Desktop VM...
 Setting additional compose attributes
 VM service started
@@ -49,7 +49,9 @@ also sys user is available with password **Oracle_2023** (default values on this
 This extension will download three Docker images from DockerHub:
 
 - The extension itself (270MB)
-- [Gerald Venzl Oracle Free 23.5-slim-faststart](https://hub.docker.com/r/gvenzl/oracle-free) image (1.15/4.72GB compressed/uncompressed size)
+- [Gerald Venzl Oracle Free 23.5-slim-faststart](https://hub.docker.com/r/gvenzl/oracle-free) image
+  - linux/amd64 (1.15/4.64GB compressed/uncompressed size)
+  - linux/arm64 (1.11/4.56GB compressed/uncompressed size)
 
 As you can see first execution will wait until Oracle Free image is ready at your machine, please wait and see if you have enough space available ;)
 
@@ -58,10 +60,10 @@ As you can see first execution will wait until Oracle Free image is ready at you
 To uninstall the extension just execute:
 
 ```bash
-$ docker extension uninstall mochoa/oraclefree-docker-extension:23.5.0
+$ docker extension uninstall mochoa/oraclefree-docker-extension:23.5.1
 Extension "Oracle Free" uninstalled successfully
 ```
 
 ## Sources
 
-As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.5.0-faststart), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.
+As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.5.1-faststart), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.
