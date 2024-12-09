@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v23.6.0
+
+- Upgrade to latest Oracle Free Developer Edition.
+
 ## v23.5.1
 
 - Upgrade to 23ai Database release, multi-arch image.
