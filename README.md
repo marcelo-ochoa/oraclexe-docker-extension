@@ -7,11 +7,11 @@ Oracle Free extension for Docker Desktop
 Until this extension is ready at Docker Extension Hub you can install with the [Extension CLI](https://docs.docker.com/desktop/extensions-sdk/#prerequisites):
 
 ```bash
-$ docker extension install mochoa/oraclefree-docker-extension:23.8.0
-docker extension install mochoa/oraclefree-docker-extension:23.8.0
+$ docker extension install mochoa/oraclefree-docker-extension:23.9.0
+docker extension install mochoa/oraclefree-docker-extension:23.9.0
 Extensions can install binaries, invoke commands and access files on your machine. 
 Are you sure you want to continue? [y/N] y
-Installing new extension "mochoa/oraclefree-docker-extension:23.8.0"
+Installing new extension "mochoa/oraclefree-docker-extension:23.9.0"
 Installing service in Desktop VM...
 Setting additional compose attributes
 VM service started
@@ -25,7 +25,7 @@ Extension "OracleFree Developer Edition 23c embedded RDBMS - Faststart" installe
 **Note**: Oracle Free Docker image is big (1.33GB), is strongly recommended that first execute:
 
 ```bash
-docker pull gvenzl/oracle-free:23.8-slim-faststart
+docker pull ghcr.io/gvenzl/oracle-free:23.9-slim-faststart
 ```
 
 ## Using Oracle Free Docker Extension
@@ -49,7 +49,7 @@ also sys user is available with password **Oracle_2023** (default values on this
 This extension will download three Docker images from DockerHub:
 
 - The extension itself (282.1MB)
-- [Gerald Venzl Oracle Free 23.8-slim-faststart](https://hub.docker.com/r/gvenzl/oracle-free) image
+- [Gerald Venzl Oracle Free 23.9-slim-faststart](https://hub.docker.com/r/gvenzl/oracle-free) image
   - linux/amd64 (1.15/4.64GB compressed/uncompressed size)
   - linux/arm64 (1.11/4.56GB compressed/uncompressed size)
 
@@ -60,10 +60,10 @@ As you can see first execution will wait until Oracle Free image is ready at you
 To uninstall the extension just execute:
 
 ```bash
-$ docker extension uninstall mochoa/oraclefree-docker-extension:23.8.0
+$ docker extension uninstall mochoa/oraclefree-docker-extension:23.9.0
 Extension "Oracle Free" uninstalled successfully
 ```
 
 ## Sources
 
-As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.8.0-faststart), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.
+As usual the code of this extension is at [GitHub](https://github.com/marcelo-ochoa/oraclexe-docker-extension/tree/oracle-free-23.9.0-faststart), feel free to suggest changes and make contributions, note that I am a beginner developer of React and TypeScript so contributions to make this UI better are welcome.

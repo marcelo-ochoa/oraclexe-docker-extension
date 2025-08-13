@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## v23.9.0
+
+- Upgrade to latest Oracle Free Developer Edition.
+- [Oracle Database New Features Guide](https://docs.oracle.com/en/database/oracle/oracle-database/23/nfcoa/ru_23_9.html)
+
 ## v23.8.0
 
 - Upgrade to latest Oracle Free Developer Edition.
