@@ -11,7 +11,7 @@ services:
     environment:
       - SQLPATH=/home/sqlcl
   oraclefree:
-    image: ghcr.io/gvenzl/oracle-free:${VERSION:-23.9-slim-faststart}
+    image: ghcr.io/gvenzl/oracle-free:${VERSION:-23.26.0-slim-faststart}
     hostname: oracle
     restart: unless-stopped
     volumes:
