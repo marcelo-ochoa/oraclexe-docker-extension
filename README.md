@@ -48,7 +48,7 @@ also sys user is available with password **Oracle_2023** (default values on this
 
 This extension will download three Docker images from DockerHub:
 
-- The extension itself (282.1MB)
+- The extension itself (444.29/823.35 MB compressed/uncompressed size)
 - [Gerald Venzl Oracle Free 23.26.1-slim-faststart](https://hub.docker.com/r/gvenzl/oracle-free) image
 - linux/amd64 (1.22/5.05 GB compressed/uncompressed size)
 - linux/arm64 (1.12/4.79 GB compressed/uncompressed size)
