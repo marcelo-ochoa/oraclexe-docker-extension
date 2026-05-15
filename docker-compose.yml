@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   oraclefree-docker-extension:
@@ -11,7 +11,7 @@ services:
     environment:
       - SQLPATH=/home/sqlcl
   oraclefree:
-    image: ghcr.io/gvenzl/oracle-free:${VERSION:-23.26.0-slim-faststart}
+    image: ghcr.io/gvenzl/oracle-free:${VERSION:-23.26.1-slim-faststart}
     hostname: oracle
     restart: unless-stopped
     volumes:

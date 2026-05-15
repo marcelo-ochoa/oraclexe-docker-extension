@@ -2,10 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-## v23.26.0
+## v23.26.1
 
 - Upgrade to latest Oracle Free Developer Edition.
 - [Oracle AI Database New Features](https://docs.oracle.com/en/database/oracle/oracle-database/26/nfcoa/intro_feature_highlights.html)
+
+## v23.26.0
+
+- Upgrade to latest Oracle Free Developer Edition.
 
 ## v23.9.0
 
