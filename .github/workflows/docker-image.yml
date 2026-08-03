@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - "oracle-free-23.26.1-faststart"
+      - "oracle-free-23.26.2-faststart"
 
 jobs:
   docker:
@@ -26,4 +26,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: mochoa/oraclefree-docker-extension:23.26.1
+          tags: mochoa/oraclefree-docker-extension:23.26.2

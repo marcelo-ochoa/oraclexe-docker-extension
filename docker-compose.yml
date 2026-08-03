@@ -7,11 +7,12 @@ services:
     ports:
       - ${SQL_CL_PORT:-59830}:7681
     volumes:
-      - sqlcl_home:/home/sqlcl
+      - sqlcl_home:/home/sqlc
     environment:
       - SQLPATH=/home/sqlcl
+      - JAVA_TOOL_OPTIONS="-Doracle.jdbc.timezoneAsRegion=false -Duser.timezone=UTC"
   oraclefree:
-    image: ghcr.io/gvenzl/oracle-free:${VERSION:-23.26.1-slim-faststart}
+    image: ghcr.io/gvenzl/oracle-free:${VERSION:-23.26.2-slim-faststart}
     hostname: oracle
     restart: unless-stopped
     volumes:
